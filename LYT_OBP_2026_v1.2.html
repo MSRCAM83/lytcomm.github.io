@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyt Communications | Subcontractor Onboarding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007bff;
+            --success: #28a745;
+            --light-bg: #f8f9fa;
+            --logo-gradient: linear-gradient(135deg, var(--primary), var(--success));
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light-bg); color: #333; padding-bottom: 5rem; margin: 0; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+        /* Header & Logo Section */
+        .header-bg { 
+            background: white; 
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+        }
+        .logo-container {
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .logo-main { font-size: 2.5rem; font-weight: 700; background: var(--logo-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }
+        .logo-sub { font-size: 0.9rem; letter-spacing: 3px; color: #666; text-transform: uppercase; font-weight: 600; margin-top: -5px; }
+
+        /* Mobile Progress Tracker */
+        .step-navbar {
+            background: #fff;
+            overflow-x: auto;
+            display: flex;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            scrollbar-width: none;
+        }
+        .step-navbar::-webkit-scrollbar { display: none; }
+        .step-item {
+            flex: 0 0 auto;
+            padding: 8px 16px;
+            margin-right: 8px;
+            border-radius: 20px;
+            background: #f0f0f0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #888;
+            white-space: nowrap;
+        }
+        .step-item.active { background: var(--logo-gradient); color: white; }
+
+        /* Form Cards */
+        .onboarding-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .manual-alert {
+            background: #eef7ff;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .btn-primary-lyt {
+            background: var(--logo-gradient);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .onboarding-card { padding: 1.2rem; border-radius: 0; margin-top: 10px; }
+            .logo-main { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-bg">
+    <div class="logo-container">
+        <h1 class="logo-main">lyt <span style="font-weight: 400;">Communications</span></h1>
+        <div class="logo-sub">Building Digital Futures</div>
+    </div>
+</header>
+
+<div class="step-navbar">
+    <div class="step-item active">1. Welcome</div>
+    <div class="step-item">2. MSA</div>
+    <div class="step-item">3. Legal / W9</div>
+    <div class="step-item">4. Safety</div>
+    <div class="step-item">5. Equipment</div>
+    <div class="step-item">6. Vehicles</div>
+    <div class="step-item">7. Banking</div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            
+            <div class="onboarding-card">
+                <h3 class="mb-3">Welcome to the Team</h3>
+                <p class="text-muted">Please complete this digital onboarding package. This is required for all new hire subcontractors for the 2026 season.</p>
+                
+                <div class="manual-alert my-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-file-contract text-primary fs-2 me-3"></i>
+                        <div>
+                            <h6 class="mb-1">Required: Safety Review</h6>
+                            <a href="https://drive.google.com/file/d/1nqui2xynNNjH5QVrr52VAs_NgPP_axej/view" target="_blank" class="small text-primary text-decoration-none">
+                                View HSE Manual 2026 v2.2 <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Company Name</label>
+                        <input type="text" class="form-control" placeholder="Enter legal business name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Primary Contact Email</label>
+                        <input type="email" class="form-control" placeholder="name@company.com">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Specialization</label>
+                        <select class="form-select">
+                            <option>Fiber Splicing</option>
+                            <option>HDD / Boring</option>
+                            <option>Aerial / Lineman</option>
+                            <option>Traffic Control</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary-lyt">
+                        Start MSA Section <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="text-center mt-5 text-muted small">
+    <p>© 2026 Lyt Communications. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

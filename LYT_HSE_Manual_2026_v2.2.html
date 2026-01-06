@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyt Communications Safety Manual & Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007bff;
+            --success: #28a745;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --logo-gradient: linear-gradient(135deg, var(--primary), var(--success));
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--light-bg); 
+            color: #333; 
+            line-height: 1.7; 
+            padding-bottom: 5rem;
+        }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        .logo-text {
+            background: var(--logo-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        .header-bg { 
+            background: var(--logo-gradient); 
+        }
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            page-break-after: always;
+        }
+        .section-header {
+            background: var(--logo-gradient);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            margin: -2.5rem -2.5rem 2rem -2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+        .section-header i { font-size: 2rem; opacity: 0.9; }
+        .tip-box { 
+            background: #e3f2fd; 
+            border-left: 6px solid var(--primary); 
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .fun-fact { 
+            background: #d4edda; 
+            border-left: 6px solid var(--success); 
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        img { 
+            max-width: 600px; 
+            width: 100%;
+            height: auto; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            margin: 2rem auto 5rem auto; 
+            display: block;
+            clear: both;
+        }
+        .page-break { page-break-before: always; }
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(0,123,255,0.9) !important;
+            transition: all 0.3s;
+        }
+        .navbar.scrolled { background: rgba(0,123,255,0.95) !important; }
+        .nav-link { transition: color 0.3s, transform 0.2s; }
+        .nav-link:hover { transform: translateY(-2px); }
+        .nav-link.active { color: #fff !important; font-weight: 600; }
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 3rem 0;
+        }
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 0.75in;
+                @top-left {
+                    content: "Lyt Communications";
+                    font-size: 9pt;
+                    color: #666;
+                }
+                @top-right {
+                    content: "Safety Manual & Plan";
+                    font-size: 9pt;
+                    color: #666;
+                }
+            }
+            body { 
+                background: white; 
+                padding-bottom: 0; 
+                font-size: 11pt; 
+                line-height: 1.7;
+            }
+            .no-print, .navbar, footer { display: none; }
+            .section-card { 
+                box-shadow: none; 
+                padding: 1.25rem; 
+                margin: 0; 
+                page-break-inside: avoid;
+                page-break-after: always;
+            }
+            .section-header { 
+                background: #007bff !important; 
+                -webkit-print-color-adjust: exact; 
+                page-break-after: avoid;
+                margin: 0 0 1.5rem 0;
+                padding: 1rem;
+            }
+            img { 
+                box-shadow: none; 
+                max-width: 70%; 
+                margin: 1.5rem auto 3rem auto; 
+                page-break-inside: avoid;
+            }
+            .tip-box, .fun-fact { 
+                background: #f0f0f0 !important; 
+                border: 1px solid #ddd;
+                -webkit-print-color-adjust: exact; 
+                page-break-inside: avoid;
+            }
+            h1, h2, h3, h4, h5 { 
+                page-break-after: avoid; 
+                widows: 3; 
+                orphans: 3;
+            }
+            ul, ol, p { 
+                page-break-inside: avoid; 
+                widows: 3; 
+                orphans: 3;
+            }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark header-bg no-print shadow fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center fw-bold fs-4" href="#">
+            <span class="logo-text fs-2 me-2">lyt</span>
+            <span>Communications</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#intro">Introduction</a></li>
+                <li class="nav-item"><a class="nav-link" href="#responsibilities">Responsibilities</a></li>
+                <li class="nav-item"><a class="nav-link" href="#ppe">PPE</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hazcom">HazCom</a></li>
+                <li class="nav-item"><a class="nav-link" href="#emergency">Emergency</a></li>
+                <li class="nav-item"><a class="nav-link" href="#call811">Call 811</a></li>
+                <li class="nav-item"><a class="nav-link" href="#state-specific">State Requirements</a></li>
+                <li class="nav-item"><a class="nav-link" href="#underground">Underground</a></li>
+                <li class="nav-item"><a class="nav-link" href="#aerial">Aerial</a></li>
+                <li class="nav-item"><a class="nav-link" href="#splicing">Splicing</a></li>
+                <li class="nav-item"><a class="nav-link" href="#office">Office</a></li>
+                <li class="nav-item"><a class="nav-link" href="#acknowledgment">Acknowledgment</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container my-5 pt-5">
+
+    <!-- Cover Page -->
+    <div class="text-center py-5 mt-5">
+        <h1 class="display-1 fw-bold logo-text">lyt</h1>
+        <h2 class="display-4 fw-bold">Communications</h2>
+        <p class="lead fs-2 mt-3 text-muted">BUILDING DIGITAL FUTURES</p>
+        <hr class="w-50 mx-auto my-5" style="height: 4px; background: var(--logo-gradient); border: none; opacity: 0.8;">
+        <h3 class="display-5 fw-bold mt-5">Safety Manual & Plan</h3>
+        <p class="fs-4 mt-4">Safety isn't just a rule — it's our superpower.</p>
+        <p class="fs-5 text-muted mt-4">Version 2.2 • January 2026</p>
+        <i class="fas fa-shield-alt text-success mt-5" style="font-size: 5rem; opacity: 0.8;"></i>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Table of Contents -->
+    <div class="section-card">
+        <h2 class="section-header"><i class="fas fa-list-ol"></i> Table of Contents</h2>
+        <ol class="list-group list-group-numbered mt-4 fs-5">
+            <li><a href="#intro">Introduction & Safety Commitment</a></li>
+            <li><a href="#responsibilities">Safety Responsibilities</a></li>
+            <li><a href="#ppe">Personal Protective Equipment (PPE)</a></li>
+            <li><a href="#hazcom">Hazard Communication (HazCom)</a></li>
+            <li><a href="#emergency">Emergency Procedures</a></li>
+            <li><a href="#call811">Call 811 Before You Dig</a></li>
+            <li><a href="#state-specific">State-Specific Requirements (Texas & Louisiana)</a></li>
+            <li><a href="#underground">Underground Construction Safety</a></li>
+            <li><a href="#aerial">Aerial Construction Safety</a></li>
+            <li><a href="#splicing">Fiber Splicing Safety</a></li>
+            <li><a href="#office">Office Safety</a></li>
+            <li><a href="#acknowledgment">Employee Acknowledgment</a></li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 1. Introduction -->
+    <div class="section-card" id="intro">
+        <h2 class="section-header"><i class="fas fa-lightbulb"></i> 1. Introduction & Safety Commitment</h2>
+        <p>At Lyt Communications, we're connecting the world with high-speed fiber — but nothing is more important than connecting our team safely home every day.</p>
+        <p>This manual outlines our comprehensive safety program, aligned with federal OSHA standards (including 29 CFR 1926 for construction), Common Ground Alliance best practices, and general industry requirements. State-specific regulations may apply — consult local authorities as needed.</p>
+        <h4>Insurance Mandates</h4>
+        <p>To meet insurance company requirements for 2026, all PPE must be regularly inspected for wear and tear, with damaged equipment removed immediately. Subcontractors must be qualified and overseen, especially in solar/BESS-related fiber work if applicable. Compliance with OSHA training deadlines (e.g., high-energy hazard controls, heat illness programs) is mandatory to manage rising costs and risks. Digital documentation of all safety records is required for coverage.</p>
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> A strong safety culture reduces incidents by up to 70%. Let's make Lyt the safest in the industry!
+        </div>
+        <img src="https://heavyequipmentcollege.edu/wp-content/uploads/2024/08/Horizontal-Directional-Drilling-Operations-and-Job-Site-Safety.png" alt="Team working safely on fiber project">
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 2. Responsibilities -->
+    <div class="section-card" id="responsibilities">
+        <h2 class="section-header"><i class="fas fa-user-shield"></i> 2. Safety Responsibilities</h2>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Management:</strong> Provide training, PPE, and resources. Conduct regular safety audits.</li>
+            <li class="list-group-item"><strong>Supervisors:</strong> Enforce rules, perform daily inspections, designate competent persons.</li>
+            <li class="list-group-item"><strong>Employees:</strong> Follow procedures, report hazards, use PPE properly.</li>
+        </ul>
+        <div class="tip-box">
+            <strong>Pro Tip:</strong> Safety is everyone's job. Speak up if something looks off — you're saving lives!
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 3. PPE -->
+    <div class="section-card" id="ppe">
+        <h2 class="section-header"><i class="fas fa-hard-hat"></i> 3. Personal Protective Equipment (PPE)</h2>
+        <p>Per OSHA 1926.28 and 1926 Subpart E, PPE must fit properly (updated 2025 rule) and be provided at no cost to employees. Basic required PPE includes:</p>
+        <ul>
+            <li>Hard hats (ANSI Z89.1)</li>
+            <li>High-visibility vests (ANSI Class 2/3)</li>
+            <li>Safety glasses with side shields</li>
+            <li>Work boots with slip-resistant soles</li>
+        </ul>
+        <img src="https://www.shutterstock.com/image-photo/construction-worker-bright-yellow-hiviz-600nw-2147127265.jpg" alt="Worker in full PPE">
+        <p>Additional specialized PPE required for specific tasks:</p>
+        <ul>
+            <li>Cut-resistant gloves for fiber handling</li>
+            <li>Hearing protection when noise >85 dB</li>
+            <li>Fall protection harnesses for heights >6 ft</li>
+        </ul>
+        <img src="https://uppler-platform-otego.s3.eu-west-3.amazonaws.com/uppler_default/fd/5b/8c2cc02ac090156bd757f3e4227a.jpg" alt="Full PPE demonstration">
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 4. HazCom -->
+    <div class="section-card" id="hazcom">
+        <h2 class="section-header"><i class="fas fa-exclamation-triangle"></i> 4. Hazard Communication (HazCom)</h2>
+        <p>Aligned with OSHA 1910.1200 (applicable to construction via 1926.59):</p>
+        <ul>
+            <li>All hazardous chemicals labeled with GHS pictograms</li>
+            <li>Safety Data Sheets (SDS) accessible on-site and in office</li>
+            <li>Employee training on chemical hazards (e.g., isopropyl alcohol, adhesives)</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 5. Emergency -->
+    <div class="section-card" id="emergency">
+        <h2 class="section-header"><i class="fas fa-phone-alt"></i> 5. Emergency Procedures</h2>
+        <p>Post emergency numbers. Conduct drills. First aid kits and trained responders on every crew.</p>
+        <div class="tip-box">
+            In an emergency: Stop work, call 911, notify supervisor, preserve scene.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 6. Call 811 -->
+    <div class="section-card" id="call811">
+        <h2 class="section-header"><i class="fas fa-phone"></i> 6. Call 811 Before You Dig</h2>
+        <p>Federal law (PHMSA) and state one-call systems require notification 2–3 business days before any ground disturbance. Key steps:</p>
+        <ul>
+            <li>Call 811 or submit online ticket</li>
+            <li>Wait for marks</li>
+        </ul>
+        <img src="https://images.mysafetysign.com/img/dp/lg/call-before-you-dig-signs-2.jpg" alt="Call 811 sign">
+        <p>Always respect and maintain marks throughout the project:</p>
+        <ul>
+            <li>Hand expose within tolerance zone (typically 18–24 inches)</li>
+            <li>Re-mark if faded</li>
+        </ul>
+        <img src="https://www.acsunderground.com/wp-content/uploads/2021/08/IMG-3768-1-scaled.jpeg" alt="Utility locator marking lines">
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 7. State-Specific -->
+    <div class="section-card" id="state-specific">
+        <h2 class="section-header"><i class="fas fa-map-marked-alt"></i> 7. State-Specific Requirements (Texas & Louisiana)</h2>
+        <p>Lyt Communications operates primarily in Texas and Louisiana. While federal OSHA standards apply nationwide, each state has its own damage prevention laws governing utility locating and excavation. We strictly follow both federal and state requirements — no exceptions.</p>
+
+        <div class="fun-fact">
+            <strong>Pro Tip:</strong> Knowing your state's rules isn't just compliance — it's what keeps strikes at zero and everyone safe.
+        </div>
+
+        <h4 class="mt-5">Texas Requirements (Texas Utilities Code Chapter 251 & TAC Title 16, Chapter 18)</h4>
+        <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Flag_of_Texas.svg/1280px-Flag_of_Texas.svg.png" alt="Texas Flag" style="width: 120px;">
+            <div>
+                <ul>
+                    <li><strong>Notice Period:</strong> Call Texas811 at least <strong>2 full working days (48 hours)</strong> before excavation (excluding weekends and observed holidays).</li>
+                    <li><strong>Tolerance Zone:</strong> 18 inches on each side of marked utilities.</li>
+                    <li><strong>Within Tolerance Zone:</strong> Use only hand tools, vacuum excavation, or other non-mechanical means until utilities are visibly exposed.</li>
+                    <li><strong>Positive Response:</strong> Confirm all affected operators have responded before starting.</li>
+                    <li><strong>White Lining:</strong> Strongly recommended (required for certain large/complex tickets) — mark proposed dig area in white paint/flags.</li>
+                    <li><strong>Damage Reporting:</strong> Immediately report any contact or damage to the utility owner and Texas811.</li>
+                </ul>
+            </div>
+        </div>
+        <p>Additional Texas Specs: All materials/workmanship must conform to industry codes and department specs. For broadband, use applicable engineering standards governing installation, maintenance, and operation. Cable/fiber may be aerial, buried, or underground — obtain cable prints for type/size. Never use soaps/detergents that break down cable sheath.</p>
+        <p>Official Resources: <a href="https://texas811.org" target="_blank">texas811.org</a> | Excavator Guide available online.</p>
+
+        <h4 class="mt-5">Louisiana Requirements (La. R.S. 40:1749.11 et seq.)</h4>
+        <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Flag_of_Louisiana.svg/1280px-Flag_of_Louisiana.svg.png" alt="Louisiana Flag" style="width: 120px;">
+            <div>
+                <ul>
+                    <li><strong>Notice Period:</strong> Call Louisiana 811 at least <strong>2 full working days</strong> before starting excavation or demolition (excluding day of call, weekends, and holidays).</li>
+                    <li><strong>Mandatory Training (Effective Aug 1, 2025):</strong> All excavators and demolishers <strong>must complete state-approved online damage prevention training</strong> before performing work. Lyt ensures all crew members are certified.</li>
+                    <li><strong>Tolerance Zone:</strong> Use non-powered hand tools or non-invasive methods until facilities are exposed (follow marks precisely).</li>
+                    <li><strong>White Lining:</strong> Required for large projects and strongly encouraged for all tickets.</li>
+                    <li><strong>Emergency Excavation:</strong> Provide oral notice as soon as practicable, followed by written ticket.</li>
+                    <li><strong>Damage Reporting:</strong> Immediate notification required.</li>
+                </ul>
+            </div>
+        </div>
+        <p>Additional Louisiana Specs: All materials/workmanship conform to applicable industry codes and department specs (2026 Louisiana Standard Specifications for Roads and Bridges). For buried utilities, adhere to state law requiring specific activities for excavators/operators. Safety precautions for all personnel, including OSHA 10 Certification for telecom boring.</p>
+        <p>Official Resources: <a href="https://www.louisiana811.com" target="_blank">louisiana811.com</a> | Complete required training at the LA811 portal.</p>
+
+        <div class="tip-box">
+            <strong>Lyt Policy:</strong> All field team members working in Louisiana must show proof of current damage prevention training certification. Supervisors verify this before job start. We're 100% compliant — no shortcuts.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 8. Underground -->
+    <div class="section-card" id="underground">
+        <h2 class="section-header"><i class="fas fa-tools"></i> 8. Underground Construction Safety</h2>
+        <p>Covers locating, potholing, hand digging, excavating, trenching, HDD, plowing, and pulling.</p>
+
+        <h4>Locating & Potholing</h4>
+        <p>Use 811 marks + private locators. Pothole (vacuum or hand) to verify depths. Proper potholing is critical to avoid utility strikes.</p>
+        <img src="https://www.util-locate.com/wp-content/uploads/2021/08/Util-Locate-Utility-locating-company-Fullerton-An-Overview-of-the-Underground-Utility-Locating-Methods.jpg" alt="Locator at work">
+
+        <h4>Excavation, Trenching & HDD (OSHA 1926 Subpart P)</h4>
+        <p>Competent person inspects daily and upon condition change before workers enter. Use protective systems for trenches =5 ft (sloping, shoring, shielding) unless in stable rock. Ladders/access every 25 ft in trenches =4 ft. No standing water or surcharge loads. For HDD: Qualified operator, pothole critical utilities, monitor drilling fluid pressure, and maintain emergency spill response plan. Trench safety measures: Trenches 5 ft deep or greater require protective system; a stairway/ladder/ramp for safe egress in trenches 4 ft or more.</p>
+        <p>Plowing & Pulling: Maintain safe tension. Use spotters. Secure reels.</p>
+        <img src="https://mincon.com/wp-content/uploads/2024/06/5.-hdd.jpg" alt="HDD machine in operation">
+
+        <div class="fun-fact">
+            <strong>Did You Know?</strong> Proper potholing prevents 99% of utility strikes when done correctly.
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 9. Aerial -->
+    <div class="section-card" id="aerial">
+        <h2 class="section-header"><i class="fas fa-tower-broadcast"></i> 9. Aerial Construction Safety</h2>
+        <p>Aligned with OSHA 29 CFR 1910.268 (Telecommunications), 1926 Subpart M (Fall Protection), and 1926 Subpart V (Power Transmission). Aerial work presents serious risks of falls and electrocution. We prioritize engineering controls, training, and 100% compliance. Only employees qualified by training/experience to operate equipment/machinery.</p>
+
+        <h4>Fall Protection & Pole Work</h4>
+        <p>Fall protection mandatory at heights >6 ft (construction) or >4 ft on poles/structures (telecom-specific). 100% tie-off in aerial lifts: Full-body harness + short lanyard to approved anchor point only. Never belt off to adjacent poles/structures or use bucket rails as anchors. Pole climbing: Certified climbers only; use climbing gaffs, body belts, and secondary fall arrest systems. Inspect all fall gear daily — remove damaged equipment immediately.</p>
+        <img src="https://tcimag.tcia.org/wp-content/uploads/2022/03/20220209_102348.jpg" alt="Worker with fall arrest harness in aerial lift">
+
+        <h4>Bucket Truck Operations & Additional Controls</h4>
+        <p>Qualified operators only — annual certification required. Daily ANSI/OSHA pre-use inspections: Controls, hydraulics, outriggers, boom, and insulation. Set up on stable, level ground with full outrigger deployment and pads. Maintain minimum approach distances to energized lines (10 ft for <50kV — see OSHA Table V-1). Use traffic control, spotters, and clear communication in road/right-of-way work. No operations in high winds (>25 mph), lightning, or icing conditions.</p>
+        <p>Rubber gloves and sleeves required near energized conductors (1910.268). Grounding procedures for de-energized work. Proper lashing, dead-ending, and tensioning of fiber to prevent strain hazards.</p>
+        <img src="https://unicogroup.com/wp-content/uploads/2024/09/Bucket-Truck-Safety.png" alt="Bucket truck safety overview">
+
+        <div class="fun-fact">
+            <strong>Did You Know?</strong> 100% tie-off and proper setup prevent virtually all aerial lift incidents. Let's keep our perfect record!
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 10. Splicing -->
+    <div class="section-card" id="splicing">
+        <h2 class="section-header"><i class="fas fa-link"></i> 10. Fiber Splicing Safety</h2>
+        <p>Based on Fiber Optic Association (FOA) guidelines, OSHA general duty clause, and manufacturer recommendations. Fiber splicing involves invisible glass shards, chemicals, lasers, and ergonomic risks — treat every splice with full caution. All personnel must wear usual construction safety gear plus eye protection whenever working with fiber.</p>
+
+        <h4>Eye Protection & Laser Safety</h4>
+        <p>Safety glasses with side shields mandatory at all times — fiber shards are microscopic and can embed in eyes permanently. Never look directly into active fiber ends or OTDR/sources. Fusion splicers are typically Class 1 lasers — safe when covers closed, but follow all warnings and never bypass interlocks.</p>
+        <img src="https://www.thefoa.org/tech/ref/safety/worksafe.jpg" alt="Safe fiber optic splicing practices">
+
+        <h4>Shard Handling, Chemicals & Ergonomics</h4>
+        <p>Capture all shards immediately with sticky mats, tape, or wipes. Dispose only in approved sharps containers (labeled "Fiber Optic Waste") — never in regular trash. If a shard enters skin/eye: Do not rub; flush eyes and seek medical attention immediately. No eating, drinking, or smoking in splice area to prevent ingestion.</p>
+        <p>Isopropyl alcohol is flammable — keep away from fusion arc and open flames. Work in well-ventilated splice trailers/tents with exhaust fans. Use nitrile gloves to protect skin from coatings, adhesives, and cleaners. Store chemicals in approved cabinets with proper labeling.</p>
+        <p>Adjust table/chair so elbows are at 90 degrees and monitor at eye level. Take micro-breaks every 30 minutes to stretch neck, wrists, and back. Keep workspace organized and clean to prevent trips and contamination.</p>
+        <img src="https://clusterasia.com/wp-content/uploads/2025/05/FUJIKURA-45S.jpg" alt="Modern fusion splicer workstation">
+
+        <div class="tip-box">
+            <strong>Pro Tip:</strong> A clean, organized splice station leads to better splices and zero injuries. Double-check your setup every time!
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 11. Office -->
+    <div class="section-card" id="office">
+        <h2 class="section-header"><i class="fas fa-building"></i> 11. Office Safety</h2>
+        <p>General industry standards apply:</p>
+        <ul>
+            <li>Ergonomic workstations (monitor at eye level, feet flat)</li>
+            <li>Clear walkways — no trip hazards</li>
+            <li>Fire extinguishers inspected annually</li>
+            <li>Electrical cords in good condition</li>
+        </ul>
+        <p>Additional OSHA Office Safety: Prevent slips/trips by keeping floors dry and cords secured. Ensure electrical safety to avoid shocks. Hazard identification for confined spaces, falls, and electrical risks if applicable to office setup.</p>
+        <img src="https://cdn.shopify.com/s/files/1/0399/1086/7094/files/ergonomic_workstation_setup_1024x789_512560bf-5f6e-49fb-be9a-e4c384273603.jpg?v=1603973006" alt="Proper ergonomic setup">
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 12. Acknowledgment -->
+    <div class="section-card" id="acknowledgment">
+        <h2 class="section-header"><i class="fas fa-signature"></i> 12. Employee Acknowledgment</h2>
+        <p>I have received, read, and understand the Lyt Communications Safety Manual.</p>
+        <p>Signature: _______________________________ Date: _______________</p>
+        <p>Printed Name: ____________________________</p>
+        <div class="tip-box">
+            Thank you for prioritizing safety. Together, we're building a brighter, safer future.
+        </div>
+    </div>
+
+</div>
+
+<footer class="no-print">
+    <div class="container text-center">
+        <h2 class="logo-text display-6">lyt Communications</h2>
+        <p class="lead text-light opacity-75">BUILDING DIGITAL FUTURES</p>
+        <p class="mt-4">© 2026 Lyt Communications. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.addEventListener('scroll', () => {
+        document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('.section-card').forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
